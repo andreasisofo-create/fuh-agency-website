@@ -3,38 +3,44 @@ import Image from "next/image"
 
 export function Footer() {
     return (
-        <footer className="w-full border-t border-white/5 bg-black/40 py-16 backdrop-blur-xl">
+        <footer className="w-full border-t border-white/5 bg-black py-20">
             <div className="container mx-auto px-6">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                    <div className="flex flex-col items-center md:items-start gap-4">
-                        <Link href="/" className="flex items-center gap-3">
-                            <Image
-                                src="/assets/logo-gold.png"
-                                alt="FUH Agency"
-                                width={40}
-                                height={40}
-                                className="opacity-80 hover:opacity-100 transition-opacity"
-                            />
-                            <div className="flex flex-col">
-                                <span className="text-xl font-black tracking-tighter text-white uppercase leading-none">FUH</span>
-                                <span className="text-[10px] tracking-[0.3em] text-fuh-primary font-bold uppercase leading-none mt-1">Agency</span>
-                            </div>
+                <div className="flex flex-col md:flex-row justify-between items-start gap-16">
+                    <div className="space-y-6">
+                        <Link href="/" className="flex items-baseline gap-2">
+                            <span className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter text-accent leading-none">
+                                FUN
+                            </span>
+                            <span className="text-xl font-bold italic uppercase tracking-tighter text-white leading-none">
+                                FUH Agency
+                            </span>
                         </Link>
-                        <p className="text-zinc-500 text-sm max-w-xs text-center md:text-left">
-                            The first luxury cannabis influencer agency in Europe. Redefining the high-end experience.
+                        <p className="text-zinc-500 text-xl font-medium max-w-sm leading-relaxed">
+                            Definiamo la cultura digitale nel settore cannabis. Creatività senza compromessi.
                         </p>
                     </div>
 
-                    <div className="flex flex-col items-center md:items-end gap-6">
-                        <div className="flex gap-8">
-                            <Link href="/experience" className="text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Experience</Link>
-                            <Link href="/packages" className="text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Packages</Link>
-                            <Link href="https://flyinhigh.com" target="_blank" className="text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Contact</Link>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+                        <div className="space-y-4">
+                            <p className="text-accent font-black uppercase text-xs tracking-widest">NAVIGAZIONE</p>
+                            <nav className="flex flex-col gap-2">
+                                <Link href="/experience" className="text-zinc-400 hover:text-white transition-colors font-bold uppercase text-sm">Experience</Link>
+                                <Link href="/packages" className="text-zinc-400 hover:text-white transition-colors font-bold uppercase text-sm">Packages</Link>
+                                <Link href="/workshops/olio-burro" className="text-zinc-400 hover:text-white transition-colors font-bold uppercase text-sm">Workshop</Link>
+                            </nav>
                         </div>
-                        <p className="text-zinc-600 text-xs">
-                            © 2025 FUH Agency • Barcelona & Europe • High-End Cannabis Culture
-                        </p>
+                        <div className="space-y-4">
+                            <p className="text-accent font-black uppercase text-xs tracking-widest">SOCIAL</p>
+                            <nav className="flex flex-col gap-2">
+                                <Link href="#" className="text-zinc-400 hover:text-white transition-colors font-bold uppercase text-sm">Instagram</Link>
+                                <Link href="#" className="text-zinc-400 hover:text-white transition-colors font-bold uppercase text-sm">Linkedin</Link>
+                            </nav>
+                        </div>
                     </div>
+                </div>
+                <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between text-zinc-600 text-xs font-bold uppercase tracking-widest">
+                    <p>© 2025 FUN FUH Agency • BARCELONA</p>
+                    <p>ALL RIGHTS RESERVED</p>
                 </div>
             </div>
         </footer>

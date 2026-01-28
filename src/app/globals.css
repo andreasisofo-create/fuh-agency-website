@@ -2,27 +2,33 @@
 
 @layer base {
   :root {
-    --background: #064e3b;
-    /* Emerald 900 - solid dark green */
+    --background: #000000;
     --foreground: #ffffff;
+    --accent: #00ff00;
+    --accent-dark: #008800;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
+    @apply antialiased overflow-x-hidden;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-editorial {
+    @apply font-black italic uppercase tracking-tighter;
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .text-accent {
+    color: var(--accent);
   }
 
   .glass-card {
-    @apply bg-emerald-950/60 backdrop-blur-sm border border-white/10 shadow-lg;
-  }
-
-  .glass-card-hover {
-    @apply hover:bg-emerald-900/80 hover:border-white/20 transition-all duration-300;
+    @apply bg-zinc-900 border border-white/5;
   }
 }

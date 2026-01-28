@@ -2,162 +2,97 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Check, ArrowRight } from "lucide-react"
-import { RevealText } from "@/components/animations/reveal-text"
-import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container"
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft, CheckCircle2, Zap } from "lucide-react"
 
-const packages = [
-    {
-        name: "Pacchetto Platinum",
-        icon: "🍃",
-        color: "bg-zinc-600",
-        duration: "4 giorni / 3 notti",
-        description: "Villa con piscina nei pressi di Barcellona",
-        features: [
-            { title: "Soggiorno", desc: "4 giorni / 3 notti in villa" },
-            { title: "Workshop", desc: "x2 cucina cannabica + Ticket Spannabis" },
-            { title: "Cena", desc: "x1 Cena infusa con cannabis" },
-            { title: "Ingressi", desc: "Accesso ai migliori Cannabis Club" },
-            { title: "Networking", desc: "Contatto diretto con top influencer" },
-            { title: "Transport", desc: "Trasferimenti locali inclusi" },
-        ],
-        note: "Posto letto in zona condivisa. Soggiorno 9-11 o 11-13 Marzo.",
-        highlight: false
-    },
-    {
-        name: "Pacchetto Diamond",
-        icon: "💎",
-        color: "bg-fuh-primary",
-        duration: "9 giorni / 8 notti",
-        description: "L'esperienza completa Spannabis 2025",
-        features: [
-            { title: "Soggiorno", desc: "9 giorni / 8 notti in villa" },
-            { title: "Workshop", desc: "x3 cucina cannabica" },
-            { title: "Cena", desc: "x2 Cene infuse con cannabis" },
-            { title: "Ingressi", desc: "Accesso Spannabis Full (3 Giorni)" },
-            { title: "Welcome Kit", desc: "Premium Welcome Kit incluso" },
-            { title: "Networking", desc: "Full networking con top creator" },
-        ],
-        note: "Garantiamo il posto letto (camera condivisa) 9-17 Marzo.",
-        highlight: true
-    },
-    {
-        name: "Pacchetto Gold",
-        icon: "⭐",
-        color: "bg-yellow-600",
-        duration: "2 giorni / 1 notte",
-        description: "Soggiorno rapido ma intenso",
-        features: [
-            { title: "Soggiorno", desc: "2 giorni / 1 notte in villa" },
-            { title: "Workshop", desc: "x1 cucina + Ticket Spannabis" },
-            { title: "Ingressi", desc: "Accesso Cannabis Club" },
-            { title: "Welcome Kit", desc: "Incluso kit di benvenuto" },
-            { title: "Transport", desc: "Trasferimenti locali inclusi" },
-            { title: "Networking", desc: "2 giorni con top influencer" },
-        ],
-        note: "Posto letto in zona condivisa. Soggiorno flessibile.",
-        highlight: false
-    },
-]
-
-export default function PackagesPage() {
+export default function Packages() {
     return (
-        <div className="min-h-screen bg-fuh-dark pt-20">
+        <main className="min-h-screen bg-black text-white pt-32 pb-20 selection:bg-accent selection:text-black">
+            <div className="container mx-auto px-6">
+                <Link href="/" className="inline-flex items-center text-accent font-black uppercase tracking-widest text-xs mb-10 group">
+                    <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                    TORNA ALLA HOME
+                </Link>
 
-            {/* Main Content */}
-            <main className="container mx-auto px-6 py-24">
-                <div className="max-w-7xl mx-auto">
-                    {/* Title */}
-                    <div className="text-center mb-24">
-                        <RevealText className="text-5xl md:text-8xl font-bold text-white mb-6">
-                            Scegli il tuo Piano
-                        </RevealText>
-                        <RevealText delay={0.2} className="text-xl text-zinc-400 max-w-2xl mx-auto">
-                            Pacchetti esclusivi pensati per influencer e brand che vogliono vivere Spannabis da protagonisti.
-                        </RevealText>
+                <header className="mb-20">
+                    <motion.h1
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        className="text-6xl md:text-[8rem] font-black italic uppercase tracking-tighter leading-[0.85] mb-6"
+                    >
+                        OFFERTA<br />ESCLUSIVA
+                    </motion.h1>
+                    <p className="text-2xl font-bold italic uppercase tracking-tighter text-zinc-400 max-w-2xl">
+                        Scegli il livello di accesso alla Spannabis Experience 2025. Posti limitati.
+                    </p>
+                </header>
+
+                <div className="grid lg:grid-cols-2 gap-10">
+                    {/* DIAMOND PACKAGE */}
+                    <div className="bg-accent p-12 text-black flex flex-col justify-between">
+                        <div className="space-y-8">
+                            <div className="flex justify-between items-start">
+                                <h2 className="text-6xl font-black italic uppercase tracking-tighter leading-none">DIAMOND</h2>
+                                <Zap className="w-10 h-10" />
+                            </div>
+                            <p className="text-xl font-bold uppercase tracking-tighter">L'esperienza definitiva senza limiti.</p>
+                            <ul className="space-y-4">
+                                {[
+                                    "Villa Full Access (All-Inclusive)",
+                                    "Accesso VIP a tutti i Workshop",
+                                    "Networking privato con Top Talent",
+                                    "Trasferimenti privati e concierge 24/7",
+                                    "Kit Omaggio Supreme Edition"
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-center gap-3 font-black italic uppercase">
+                                        <div className="w-2 h-2 bg-black rotate-45" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="mt-20">
+                            <Link href="https://flyinhigh.com" target="_blank">
+                                <Button className="h-20 w-full bg-black text-white rounded-none font-black uppercase text-2xl hover:bg-white hover:text-black transition-colors">
+                                    PRENOTA ORA
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
 
-                    {/* Packages Grid */}
-                    <StaggerContainer className="grid lg:grid-cols-3 gap-8 mb-20" staggerDelay={0.15}>
-                        {packages.map((pkg, index) => (
-                            <StaggerItem key={index}>
-                                <motion.div
-                                    whileHover={{ y: -10 }}
-                                    transition={{ duration: 0.3 }}
-                                    className={`relative flex flex-col h-full bg-emerald-950/20 border ${pkg.highlight ? 'border-fuh-primary/50 shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]' : 'border-white/10'} rounded-[2.5rem] p-10 transition-all duration-300`}
-                                >
-                                    {pkg.highlight && (
-                                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-fuh-primary text-fuh-dark text-xs font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">
-                                            Most Popular
-                                        </div>
-                                    )}
-
-                                    {/* Header */}
-                                    <div className="mb-10 text-center">
-                                        <div className="text-6xl mb-6">{pkg.icon}</div>
-                                        <h2 className="text-3xl font-bold text-white mb-2">{pkg.name}</h2>
-                                        <div className="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 text-fuh-primary text-sm font-semibold mb-4">
-                                            {pkg.duration}
-                                        </div>
-                                        <p className="text-zinc-400 text-sm">{pkg.description}</p>
-                                    </div>
-
-                                    {/* Features */}
-                                    <div className="space-y-6 mb-10 flex-grow">
-                                        {pkg.features.map((feature, idx) => (
-                                            <div key={idx} className="flex items-start gap-4">
-                                                <div className="p-1 rounded-full bg-fuh-primary/10 mt-0.5">
-                                                    <Check className="w-4 h-4 text-fuh-primary" />
-                                                </div>
-                                                <div>
-                                                    <p className="text-white font-bold text-sm leading-tight">{feature.title}</p>
-                                                    <p className="text-zinc-500 text-xs mt-1">{feature.desc}</p>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    {/* Note */}
-                                    <div className="bg-fuh-dark/40 rounded-2xl p-5 mb-8 border border-white/5">
-                                        <p className="text-zinc-500 text-[11px] leading-relaxed italic">{pkg.note}</p>
-                                    </div>
-
-                                    {/* CTA */}
-                                    <Link href="https://flyinhigh.com" target="_blank" className="mt-auto">
-                                        <Button className={`w-full ${pkg.highlight ? 'bg-fuh-primary hover:bg-fuh-accent shadow-lg shadow-fuh-primary/20' : 'bg-white/10 hover:bg-white/20 text-white'} text-fuh-dark font-black py-7 rounded-full text-lg uppercase tracking-wider group transition-all duration-300`}>
-                                            Prenota Ora
-                                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                                        </Button>
-                                    </Link>
-                                </motion.div>
-                            </StaggerItem>
-                        ))}
-                    </StaggerContainer>
-
-                    {/* Bottom CTA */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center bg-emerald-950/20 border border-white/5 rounded-[3rem] p-16"
-                    >
-                        <h3 className="text-4xl font-bold text-white mb-6">Cerchi qualcosa di su misura?</h3>
-                        <p className="text-zinc-400 mb-10 max-w-2xl mx-auto text-lg">
-                            Se hai esigenze specifiche o sei un'azienda che vuole sponsorizzare l'evento, contattaci per una proposta personalizzata.
-                        </p>
-                        <Link href="https://flyinhigh.com" target="_blank">
-                            <Button size="lg" variant="outline" className="rounded-full border-white/20 hover:bg-white/5 px-16 py-8 text-xl group">
-                                Contattaci per un preventivo
-                                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                            </Button>
-                        </Link>
-                    </motion.div>
+                    {/* BRONZE PACKAGE */}
+                    <div className="border-[10px] border-accent p-12 flex flex-col justify-between">
+                        <div className="space-y-8">
+                            <div className="flex justify-between items-start">
+                                <h2 className="text-6xl font-black italic uppercase tracking-tighter leading-none">BRONZE</h2>
+                            </div>
+                            <p className="text-xl font-bold uppercase tracking-tighter text-zinc-400">Accesso ai workshop e networking.</p>
+                            <ul className="space-y-4">
+                                {[
+                                    "Accesso ai Workshop (Olio o Terpeni)",
+                                    "Networking Session Pomeridiana",
+                                    "Q&A con Expert Speaker",
+                                    "Kit Benvenuto Standard",
+                                    "Documentazione Tecnica Digitale"
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-center gap-3 font-bold italic uppercase text-zinc-400">
+                                        <div className="w-2 h-2 bg-accent rotate-45" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="mt-20">
+                            <Link href="https://flyinhigh.com" target="_blank">
+                                <Button className="h-20 w-full bg-accent text-black rounded-none font-black uppercase text-2xl hover:bg-white transition-colors">
+                                    INFO & PRENOTAZIONE
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-            </main>
-
-        </div>
+            </div>
+        </main>
     )
 }

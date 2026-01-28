@@ -39,26 +39,19 @@ export function Header() {
         >
             <div className="container mx-auto flex h-full items-center justify-between px-6">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-2">
                     <motion.div
-                        animate={{ scale: isScrolled ? 0.85 : 1 }}
+                        animate={{ scale: isScrolled ? 0.9 : 1 }}
                         transition={{ duration: 0.3 }}
+                        className="flex items-baseline gap-1"
                     >
-                        <Image
-                            src="/assets/logo-gold.png"
-                            alt="FUH Agency"
-                            width={isScrolled ? 40 : 50}
-                            height={isScrolled ? 40 : 50}
-                            className="object-contain"
-                        />
+                        <span className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-accent leading-none">
+                            FUN
+                        </span>
+                        <span className="text-lg md:text-xl font-bold italic uppercase tracking-tighter text-white leading-none">
+                            FUH Agency
+                        </span>
                     </motion.div>
-                    <motion.span
-                        animate={{ fontSize: isScrolled ? "0.875rem" : "1rem" }}
-                        transition={{ duration: 0.3 }}
-                        className="hidden sm:inline-block text-zinc-300 font-medium"
-                    >
-                        Fuh Agency
-                    </motion.span>
                 </Link>
 
                 {/* Desktop Nav */}
