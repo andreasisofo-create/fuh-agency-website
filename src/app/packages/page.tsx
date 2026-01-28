@@ -3,55 +3,62 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
+import { RevealText } from "@/components/animations/reveal-text"
+import { StaggerContainer, StaggerItem } from "@/components/animations/stagger-container"
+import { motion } from "framer-motion"
 
 const packages = [
     {
         name: "Pacchetto Platinum",
         icon: "🍃",
-        color: "from-zinc-600 to-zinc-700",
-        duration: "4 giorni / 3 notti in villa con piscina nei pressi di Barcellona",
+        color: "bg-zinc-600",
+        duration: "4 giorni / 3 notti",
+        description: "Villa con piscina nei pressi di Barcellona",
         features: [
-            { title: "Soggiorno", desc: "4 giorni / 3 notti in villa con piscina nei pressi di barcellona" },
-            { title: "Workshop", desc: "x2 di cucina cannabica e ticket x3 giorni Spannabis (a seconda del tuo piano)" },
-            { title: "Cena", desc: "x1 infusi con cannabis" },
-            { title: "Ingressi", desc: "Nei migliori cannabis Club del settore" },
-            { title: "Networking", desc: "x4 giorni a contatto con i top cannabis influencer europei" },
-            { title: "Trasferimenti", desc: "Tutti i transfer da/per l'aeroporto, villa-fiera-centro tranne i da/per l'aeroporto" },
+            { title: "Soggiorno", desc: "4 giorni / 3 notti in villa" },
+            { title: "Workshop", desc: "x2 cucina cannabica + Ticket Spannabis" },
+            { title: "Cena", desc: "x1 Cena infusa con cannabis" },
+            { title: "Ingressi", desc: "Accesso ai migliori Cannabis Club" },
+            { title: "Networking", desc: "Contatto diretto con top influencer" },
+            { title: "Transport", desc: "Trasferimenti locali inclusi" },
         ],
-        note: "Garantiamo il posto letto in zone condivise con altri forniremo in loco sacca e pelo in comodato d'uso. Soggiorno di 3 notti a scelta tra 9-11 Marzo o 11-13 Marzo. Meeting Point in Villa per chi arriva prima. In Villa per chi arriva tra il 9 e il 13 Marzo.",
+        note: "Posto letto in zona condivisa. Soggiorno 9-11 o 11-13 Marzo.",
+        highlight: false
     },
     {
         name: "Pacchetto Diamond",
         icon: "💎",
-        color: "from-emerald-600 to-emerald-700",
-        duration: "9 giorni / 8 notti in villa con piscina nei pressi di Barcellona",
+        color: "bg-fuh-primary",
+        duration: "9 giorni / 8 notti",
+        description: "L'esperienza completa Spannabis 2025",
         features: [
-            { title: "Soggiorno", desc: "9 giorni / 8 notti in villa con piscina nei pressi di Barcellona" },
-            { title: "Workshop", desc: "x3 di cucina cannabica" },
-            { title: "Cena", desc: "x2 infusi con cannabis" },
-            { title: "Ingressi", desc: "Accesso Spannabis x3 Giorni" },
-            { title: "Welcome Kit", desc: "Incluso con welcome kit e benvenuto" },
-            { title: "Trasferimenti", desc: "Tutti i transfer per/da/per villa-fiera-centro tranne i da/per l'aeroporto" },
-            { title: "Networking", desc: "Nei migliori cannabis club e ai principali eventi del settore" },
-            { title: "Networking", desc: "9 giorni a contatto con i top cannabis influencer europei" },
+            { title: "Soggiorno", desc: "9 giorni / 8 notti in villa" },
+            { title: "Workshop", desc: "x3 cucina cannabica" },
+            { title: "Cena", desc: "x2 Cene infuse con cannabis" },
+            { title: "Ingressi", desc: "Accesso Spannabis Full (3 Giorni)" },
+            { title: "Welcome Kit", desc: "Premium Welcome Kit incluso" },
+            { title: "Networking", desc: "Full networking con top creator" },
         ],
-        note: "Garantiamo il posto letto ma NON la camera ad uso esclusivo con soggiorno di 8 notti a partire dal 9-17 Marzo.",
+        note: "Garantiamo il posto letto (camera condivisa) 9-17 Marzo.",
+        highlight: true
     },
     {
         name: "Pacchetto Gold",
         icon: "⭐",
-        color: "from-yellow-600 to-yellow-700",
-        duration: "x2 giorni / 1 notte in villa con piscina nei pressi di barcellona",
+        color: "bg-yellow-600",
+        duration: "2 giorni / 1 notte",
+        description: "Soggiorno rapido ma intenso",
         features: [
-            { title: "Soggiorno", desc: "x2 giorni / 1 notte in villa con piscina nei pressi di barcellona" },
-            { title: "Workshop", desc: "x1 di cucina e ticket x1 giorno Spannabis (a seconda del tuo piano)" },
-            { title: "Ingressi", desc: "Nei migliori cannabis club" },
-            { title: "Welcome Kit", desc: "Incluso benvenuto" },
-            { title: "Trasferimenti", desc: "Tutti i transfer da gruppo villa-fiera-centro tranne i da/per l'aeroporto" },
-            { title: "Networking", desc: "2 giorni a contatto con i top cannabis influencer europei" },
+            { title: "Soggiorno", desc: "2 giorni / 1 notte in villa" },
+            { title: "Workshop", desc: "x1 cucina + Ticket Spannabis" },
+            { title: "Ingressi", desc: "Accesso Cannabis Club" },
+            { title: "Welcome Kit", desc: "Incluso kit di benvenuto" },
+            { title: "Transport", desc: "Trasferimenti locali inclusi" },
+            { title: "Networking", desc: "2 giorni con top influencer" },
         ],
-        note: "Garantiamo il posto letto in zone condivise con altri forniremo in loco sacca e pelo in comodato d'uso. Soggiorno di 1 notte a scelta tra 9 e 11 Marzo o 11 e 13 Marzo. Meeting Point in Villa per chi arriva tra il 9 e il 13 Marzo e il 9 e il 16 Marzo.",
+        note: "Posto letto in zona condivisa. Soggiorno flessibile.",
+        highlight: false
     },
 ]
 
@@ -60,73 +67,97 @@ export default function PackagesPage() {
         <div className="min-h-screen bg-fuh-dark pt-20">
 
             {/* Main Content */}
-            <main className="container mx-auto px-6 py-16">
+            <main className="container mx-auto px-6 py-24">
                 <div className="max-w-7xl mx-auto">
                     {/* Title */}
-                    <div className="text-center mb-16">
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-                            Scopri i Pacchetti Disponibili
-                        </h1>
-                        <p className="text-xl text-zinc-300">
-                            Scegli l'esperienza perfetta per te
-                        </p>
+                    <div className="text-center mb-24">
+                        <RevealText className="text-5xl md:text-8xl font-bold text-white mb-6">
+                            Scegli il tuo Piano
+                        </RevealText>
+                        <RevealText delay={0.2} className="text-xl text-zinc-400 max-w-2xl mx-auto">
+                            Pacchetti esclusivi pensati per influencer e brand che vogliono vivere Spannabis da protagonisti.
+                        </RevealText>
                     </div>
 
                     {/* Packages Grid */}
-                    <div className="grid md:grid-cols-3 gap-8 mb-12">
+                    <StaggerContainer className="grid lg:grid-cols-3 gap-8 mb-20" staggerDelay={0.15}>
                         {packages.map((pkg, index) => (
-                            <div
-                                key={index}
-                                className="bg-emerald-950/40 border border-white/10 rounded-3xl p-8 hover:border-fuh-primary/50 transition-all duration-300"
-                            >
-                                {/* Header */}
-                                <div className="text-center mb-8">
-                                    <div className="text-6xl mb-4">{pkg.icon}</div>
-                                    <h2 className="text-3xl font-bold text-white mb-3">{pkg.name}</h2>
-                                    <p className="text-zinc-400 text-sm">{pkg.duration}</p>
-                                </div>
-
-                                {/* Features */}
-                                <div className="space-y-4 mb-8">
-                                    {pkg.features.map((feature, idx) => (
-                                        <div key={idx} className="flex items-start gap-3">
-                                            <Check className="w-5 h-5 text-fuh-primary shrink-0 mt-0.5" />
-                                            <div>
-                                                <p className="text-white font-semibold text-sm">{feature.title}</p>
-                                                <p className="text-zinc-400 text-xs">{feature.desc}</p>
-                                            </div>
+                            <StaggerItem key={index}>
+                                <motion.div
+                                    whileHover={{ y: -10 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={`relative flex flex-col h-full bg-emerald-950/20 border ${pkg.highlight ? 'border-fuh-primary/50 shadow-[0_0_40px_-10px_rgba(16,185,129,0.2)]' : 'border-white/10'} rounded-[2.5rem] p-10 transition-all duration-300`}
+                                >
+                                    {pkg.highlight && (
+                                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-fuh-primary text-fuh-dark text-xs font-black uppercase tracking-widest px-6 py-2 rounded-full shadow-lg">
+                                            Most Popular
                                         </div>
-                                    ))}
-                                </div>
+                                    )}
 
-                                {/* Note */}
-                                <div className="bg-fuh-dark/50 rounded-2xl p-4 mb-6">
-                                    <p className="text-zinc-400 text-xs leading-relaxed">{pkg.note}</p>
-                                </div>
+                                    {/* Header */}
+                                    <div className="mb-10 text-center">
+                                        <div className="text-6xl mb-6">{pkg.icon}</div>
+                                        <h2 className="text-3xl font-bold text-white mb-2">{pkg.name}</h2>
+                                        <div className="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 text-fuh-primary text-sm font-semibold mb-4">
+                                            {pkg.duration}
+                                        </div>
+                                        <p className="text-zinc-400 text-sm">{pkg.description}</p>
+                                    </div>
 
-                                {/* CTA */}
-                                <Link href="https://flyinhigh.com" target="_blank" className="block">
-                                    <Button className="w-full bg-fuh-primary hover:bg-fuh-accent text-fuh-dark font-bold py-6 rounded-full">
-                                        Prenota Ora
-                                    </Button>
-                                </Link>
-                            </div>
+                                    {/* Features */}
+                                    <div className="space-y-6 mb-10 flex-grow">
+                                        {pkg.features.map((feature, idx) => (
+                                            <div key={idx} className="flex items-start gap-4">
+                                                <div className="p-1 rounded-full bg-fuh-primary/10 mt-0.5">
+                                                    <Check className="w-4 h-4 text-fuh-primary" />
+                                                </div>
+                                                <div>
+                                                    <p className="text-white font-bold text-sm leading-tight">{feature.title}</p>
+                                                    <p className="text-zinc-500 text-xs mt-1">{feature.desc}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Note */}
+                                    <div className="bg-fuh-dark/40 rounded-2xl p-5 mb-8 border border-white/5">
+                                        <p className="text-zinc-500 text-[11px] leading-relaxed italic">{pkg.note}</p>
+                                    </div>
+
+                                    {/* CTA */}
+                                    <Link href="https://flyinhigh.com" target="_blank" className="mt-auto">
+                                        <Button className={`w-full ${pkg.highlight ? 'bg-fuh-primary hover:bg-fuh-accent shadow-lg shadow-fuh-primary/20' : 'bg-white/10 hover:bg-white/20 text-white'} text-fuh-dark font-black py-7 rounded-full text-lg uppercase tracking-wider group transition-all duration-300`}>
+                                            Prenota Ora
+                                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                                        </Button>
+                                    </Link>
+                                </motion.div>
+                            </StaggerItem>
                         ))}
-                    </div>
+                    </StaggerContainer>
 
                     {/* Bottom CTA */}
-                    <div className="text-center">
-                        <p className="text-zinc-400 mb-6">
-                            Non sei sicuro quale pacchetto scegliere? Contattaci per una consulenza personalizzata.
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center bg-emerald-950/20 border border-white/5 rounded-[3rem] p-16"
+                    >
+                        <h3 className="text-4xl font-bold text-white mb-6">Cerchi qualcosa di su misura?</h3>
+                        <p className="text-zinc-400 mb-10 max-w-2xl mx-auto text-lg">
+                            Se hai esigenze specifiche o sei un'azienda che vuole sponsorizzare l'evento, contattaci per una proposta personalizzata.
                         </p>
                         <Link href="https://flyinhigh.com" target="_blank">
-                            <Button size="lg" variant="outline" className="rounded-full border-white/20 hover:bg-white/10 px-12 py-6">
-                                Contattaci
+                            <Button size="lg" variant="outline" className="rounded-full border-white/20 hover:bg-white/5 px-16 py-8 text-xl group">
+                                Contattaci per un preventivo
+                                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                             </Button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </main>
+
         </div>
     )
 }
