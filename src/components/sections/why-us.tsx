@@ -54,7 +54,7 @@ export function WhyUsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm hover:border-fuh-primary/20 transition-colors"
+                                className="p-6 rounded-2xl bg-zinc-900/80 border border-white/10 backdrop-blur-sm hover:border-fuh-primary/20 transition-colors"
                             >
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-fuh-accent">
                                     <span className="w-2 h-2 bg-fuh-primary rounded-full"></span>
@@ -75,7 +75,7 @@ export function WhyUsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.3 }}
-                                className="p-6 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm hover:border-fuh-primary/20 transition-colors"
+                                className="p-6 rounded-2xl bg-zinc-900/80 border border-white/10 backdrop-blur-sm hover:border-fuh-primary/20 transition-colors"
                             >
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-fuh-accent">
                                     <span className="w-2 h-2 bg-fuh-primary rounded-full"></span>
@@ -107,7 +107,7 @@ export function WhyUsSection() {
                             </div>
                             <div className="divide-y divide-white/5">
                                 {schedule.map((row, index) => (
-                                    <div key={index} className="p-6 hover:bg-white/5 transition-colors group">
+                                    <div key={index} className="p-6 hover:bg-zinc-900/60 transition-colors group">
                                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
                                             <span className="text-fuh-accent font-medium uppercase tracking-wider text-sm">{row.day}</span>
                                         </div>

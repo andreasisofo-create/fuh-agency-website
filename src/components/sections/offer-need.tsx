@@ -56,7 +56,7 @@ export function OfferNeedSection() {
                             <ul className="space-y-6">
                                 {needs.map((item, index) => (
                                     <li key={index} className="flex gap-6 group items-start">
-                                        <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-fuh-accent/50 group-hover:bg-fuh-accent/10 transition-colors mt-1">
+                                        <div className="w-10 h-10 rounded-full bg-zinc-900/80 border border-white/20 flex items-center justify-center shrink-0 group-hover:border-fuh-accent/50 group-hover:bg-fuh-accent/10 transition-colors mt-1">
                                             <ArrowRight size={18} className="text-fuh-accent" />
                                         </div>
                                         <p className="text-lg text-zinc-300 font-light pt-1 group-hover:text-white transition-colors">{item}</p>

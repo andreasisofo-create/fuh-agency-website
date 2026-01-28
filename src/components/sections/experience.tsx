@@ -78,7 +78,7 @@ export function ExperienceSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className={`group relative overflow-hidden rounded-2xl p-8 min-h-[300px] flex flex-col justify-end border border-white/5 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-fuh-primary/30 transition-all duration-500
+                            className={`group relative overflow-hidden rounded-2xl p-8 min-h-[300px] flex flex-col justify-end border border-white/10 bg-zinc-900/80 backdrop-blur-md hover:bg-zinc-800/80 hover:border-fuh-primary/30 transition-all duration-500
                                 ${index === 0 ? "md:col-span-2 lg:col-span-2 bg-gradient-to-br from-fuh-primary/10 to-transparent" : ""}
                             `}
                         >

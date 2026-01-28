@@ -85,7 +85,7 @@ export function OpportunitySection() {
                             transition={{ delay: 0.15 + (index * 0.1) }}
                             className="group"
                         >
-                            <div className="relative h-full p-8 rounded-2xl flex flex-col items-center justify-center text-center overflow-hidden border border-white/5 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-fuh-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_-5px_var(--fuh-primary-500)] shadow-none">
+                            <div className="relative h-full p-8 rounded-2xl flex flex-col items-center justify-center text-center overflow-hidden border border-white/10 bg-zinc-900/80 backdrop-blur-md hover:bg-zinc-800/80 hover:border-fuh-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_-5px_var(--fuh-primary-500)] shadow-none">
                                 {/* Hover Glow Effect */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-fuh-primary/0 via-fuh-primary/0 to-fuh-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

@@ -171,10 +171,10 @@ export function RosterSection() {
                     </div>
 
                     <div className="flex gap-3">
-                        <Button size="icon" variant="outline" onClick={scrollPrev} className="rounded-full border-white/10 bg-white/5 hover:bg-fuh-primary hover:border-fuh-primary hover:text-fuh-black transition-all duration-300">
+                        <Button size="icon" variant="outline" onClick={scrollPrev} className="rounded-full border-white/10 bg-zinc-900/80 hover:bg-fuh-primary hover:border-fuh-primary hover:text-fuh-black transition-all duration-300">
                             <ChevronLeft className="h-5 w-5" />
                         </Button>
-                        <Button size="icon" variant="outline" onClick={scrollNext} className="rounded-full border-white/10 bg-white/5 hover:bg-fuh-primary hover:border-fuh-primary hover:text-fuh-black transition-all duration-300">
+                        <Button size="icon" variant="outline" onClick={scrollNext} className="rounded-full border-white/10 bg-zinc-900/80 hover:bg-fuh-primary hover:border-fuh-primary hover:text-fuh-black transition-all duration-300">
                             <ChevronRight className="h-5 w-5" />
                         </Button>
                     </div>
@@ -187,7 +187,7 @@ export function RosterSection() {
                                 <div className="h-full group relative hover:-translate-y-2 transition-transform duration-500">
                                     <div className="absolute inset-0 bg-gradient-to-br from-fuh-primary/0 via-fuh-primary/0 to-fuh-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                    <Card className="h-full bg-white/5 border-white/5 overflow-hidden flex flex-col rounded-3xl backdrop-blur-md shadow-xl">
+                                    <Card className="h-full bg-zinc-900/80 border-white/10 overflow-hidden flex flex-col rounded-3xl backdrop-blur-md shadow-xl">
                                         <div className="relative h-72 w-full bg-zinc-900 group-hover:bg-zinc-800 transition-colors duration-500">
                                             {/* Image Placeholder - using placeholder asset for all for now, or the specific image if available */}
                                             <Image
@@ -211,12 +211,12 @@ export function RosterSection() {
                                             </p>
 
                                             <div className="mb-6 grid grid-cols-2 gap-3">
-                                                <div className="bg-white/5 border border-white/5 p-3 rounded-2xl text-center group-hover:border-white/10 transition-colors">
+                                                <div className="bg-zinc-900/80 border border-white/10 p-3 rounded-2xl text-center group-hover:border-white/20 transition-colors">
                                                     <Instagram className="w-4 h-4 mx-auto text-zinc-500 mb-1" />
                                                     <span className="block text-xl font-bold text-white tabular-nums">{influencer.instagram}</span>
                                                     <span className="text-[10px] text-zinc-500 uppercase font-medium tracking-wider">Followers</span>
                                                 </div>
-                                                <div className="bg-white/5 border border-white/5 p-3 rounded-2xl text-center group-hover:border-white/10 transition-colors">
+                                                <div className="bg-zinc-900/80 border border-white/10 p-3 rounded-2xl text-center group-hover:border-white/20 transition-colors">
                                                     <svg className="w-4 h-4 mx-auto text-zinc-500 mb-1 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" /></svg>
                                                     <span className="block text-xl font-bold text-white tabular-nums">{influencer.tiktok || "-"}</span>
                                                     <span className="text-[10px] text-zinc-500 uppercase font-medium tracking-wider">Followers</span>
