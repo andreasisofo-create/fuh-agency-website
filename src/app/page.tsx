@@ -7,35 +7,7 @@ import { ArrowRight, Users, TrendingUp, Calendar, Award } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-fuh-dark">
-      {/* Header */}
-      <header className="border-b border-white/10 py-6 sticky top-0 bg-fuh-dark/95 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="text-2xl font-bold text-white">FUH</div>
-            <span className="text-sm text-zinc-300">Fuh Agency</span>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-zinc-300 hover:text-white transition-colors">
-              Home
-            </Link>
-            <Link href="/experience" className="text-zinc-300 hover:text-white transition-colors">
-              Experience
-            </Link>
-            <Link href="/packages" className="text-zinc-300 hover:text-white transition-colors">
-              Pacchetti
-            </Link>
-            <Link href="/workshops/olio-burro" className="text-zinc-300 hover:text-white transition-colors">
-              Workshop
-            </Link>
-          </nav>
-          <Link href="https://flyinhigh.com" target="_blank">
-            <Button variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
-              Book on flyinhigh.com
-            </Button>
-          </Link>
-        </div>
-      </header>
+    <div className="min-h-screen bg-fuh-dark pt-20">
 
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">

@@ -6,21 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export default function BarcellonaExperience() {
     return (
-        <div className="min-h-screen bg-fuh-dark">
-            {/* Header */}
-            <header className="border-b border-white/10 py-6">
-                <div className="container mx-auto px-6 flex justify-between items-center">
-                    <div className="flex items-center gap-3">
-                        <div className="text-2xl font-bold text-white">FUH</div>
-                        <span className="text-sm text-zinc-300">Fuh Agency</span>
-                    </div>
-                    <Link href="https://flyinhigh.com" target="_blank">
-                        <Button variant="outline" className="rounded-full border-white/20 hover:bg-white/10">
-                            Book on flyinhigh.com
-                        </Button>
-                    </Link>
-                </div>
-            </header>
+        <div className="min-h-screen bg-fuh-dark pt-20">
 
             {/* Main Content */}
             <main className="container mx-auto px-6 py-16">
