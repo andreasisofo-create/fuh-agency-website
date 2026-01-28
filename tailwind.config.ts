@@ -11,10 +11,10 @@ const config: Config = {
       colors: {
         fuh: {
           primary: "#10b981", // Emerald 500
-          dark: "#064e3b",    // Emerald 900
-          black: "#09090b",   // Zinc 950
+          dark: "#064e3b",    // Emerald 900 - Main background
+          black: "#064e3b",   // Same as dark for consistency
           accent: "#34d399",  // Emerald 400
-          muted: "#18181b",   // Zinc 900
+          muted: "#065f46",   // Emerald 800
         },
         background: "var(--background)",
         foreground: "var(--foreground)",

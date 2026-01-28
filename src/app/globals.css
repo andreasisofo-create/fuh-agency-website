@@ -2,9 +2,14 @@
 
 @layer base {
   :root {
-    --background: #09090b;
-    /* Zinc 950 */
+    --background: #064e3b;
+    /* Emerald 900 - solid dark green */
     --foreground: #ffffff;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
 
@@ -14,30 +19,10 @@
   }
 
   .glass-card {
-    @apply bg-zinc-900/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+    @apply bg-emerald-950/60 backdrop-blur-sm border border-white/10 shadow-lg;
   }
 
   .glass-card-hover {
-    @apply hover:bg-zinc-800/60 hover:border-white/20 transition-all duration-300;
-  }
-
-  .aurora-bg {
-    background: radial-gradient(circle at 50% 50%, #10b981 0%, #064e3b 50%, #09090b 100%);
-    background-size: 200% 200%;
-    animation: aurora 15s ease infinite;
-  }
-}
-
-@keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
+    @apply hover:bg-emerald-900/80 hover:border-white/20 transition-all duration-300;
   }
 }
